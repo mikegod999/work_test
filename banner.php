@@ -49,5 +49,5 @@ Class Banner {
     }
 }
 
-$banner = new Banner('family-2.jpg');
+$banner = new Banner('family-1.jpg');
 $banner->readImageFile();
