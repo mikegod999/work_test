@@ -1,6 +1,6 @@
 CREATE DATABASE IF NOT EXISTS users CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
-CREATE TABLE `users`.`user_fields` (
+CREATE TABLE IF NOT EXISTS `users`.`user_fields` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `ip_address` VARCHAR(15) NOT NULL ,
   `page_url` VARCHAR(6) NOT NULL ,

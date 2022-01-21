@@ -42,13 +42,12 @@ Class Banner {
     }
 
     public function readImageFile(){
-        if (file_exists($this->image_url)) {
-            readfile($this->image_url);
+        if (file_exists($this->image_url) && readfile($this->image_url)) {
             $this->sendUserInfoToDatabase();
             exit;
         }
     }
 }
 
-$banner = new Banner('family-1.jpg');
+$banner = new Banner('family-2.jpg');
 $banner->readImageFile();
