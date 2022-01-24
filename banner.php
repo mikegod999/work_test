@@ -1,16 +1,14 @@
 <?php
 include 'config.php';
 
-Class Banner {
-    private $image_url;
+class User {
     private $db;
 
-    public function __construct($image_url){
-        $this->image_url = $image_url;
+    public function __construct(){
         $this->db = new mysqli(DB_HOSTNAME, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
     }
 
-    private function sendUserInfoToDatabase(){
+    public function sendUserInfoToDatabase(){
         $ip_address = $_SERVER['REMOTE_ADDR'];
         $view_date = date('Y-m-d H:i:s');
         $page_url  = $_GET['page'];
@@ -40,14 +38,12 @@ Class Banner {
             );
         }
     }
-
-    public function readImageFile(){
-        if (file_exists($this->image_url) && readfile($this->image_url)) {
-            $this->sendUserInfoToDatabase();
-            exit;
-        }
-    }
 }
 
-$banner = new Banner('family-1.jpg');
-$banner->readImageFile();
+$image_url = 'family-1.jpg';
+
+$user = new User();
+if (file_exists($image_url) && readfile($image_url)) {
+    $user->sendUserInfoToDatabase();
+    exit;
+}
